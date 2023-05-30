@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        tools:layout="@layout/fragment_search"
+        android:id="@+id/searchFragment"
+        android:name="com.tunahanozatac.soundplay.ui.searchscreen.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.tunahanozatac.soundplay.ui.detailscreen.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="trackId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_favorite_list"
+        android:id="@+id/favoriteListFragment"
+        android:name="com.tunahanozatac.soundplay.ui.favoritescreen.FavoriteListFragment"
+        android:label="FavoriteListFragment" >
+        <action
+            android:id="@+id/action_favoriteListFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_splash"
+        android:id="@+id/splashFragment"
+        android:name="com.tunahanozatac.soundplay.ui.splashscreen.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
